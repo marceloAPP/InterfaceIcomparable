@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using Exerc_202.Entities;
 
 namespace Exerc_202
 {
@@ -14,15 +15,15 @@ namespace Exerc_202
             {
                 using (StreamReader sr = File.OpenText(path))
                 {
-                    List<string> list = new List<string>();
+                    List<Funcionario> list = new List<Funcionario>();
 
                     while (!sr.EndOfStream)
                     {
-                        list.Add(sr.ReadLine());
+                        list.Add(new Funcionario(sr.ReadLine()));
                     }
                     list.Sort();
 
-                    foreach (var item in list)
+                    foreach (Funcionario item in list)
                     {
                         Console.WriteLine(item);
                     }
